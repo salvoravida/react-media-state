@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import { MediaStateContext } from './context';
 import { isSameState } from './core';
 
-export class MediaStateProvider extends React.Component {
+class MediaStateProvider extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {};
     this.windowSizeListeners = [];
     this.value = {
       debug: props.debug,
@@ -57,3 +58,5 @@ MediaStateProvider.propTypes = {
   children: PropTypes.any.isRequired,
   debug: PropTypes.bool
 };
+
+export { MediaStateProvider };
