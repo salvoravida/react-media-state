@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState, useRef } from 'react';
+import { useContext, useLayoutEffect, useState, useRef } from 'react';
 import { isSameState, filterState, getCurrentComponent } from './core';
 import { MediaStateContext } from './context';
 
@@ -26,7 +26,7 @@ export function useMediaState(mediaKeys) {
     }
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     mounted.current = true;
     const unsubscribe = subscribe(onMediaChange);
     return () => {
