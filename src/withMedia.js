@@ -14,9 +14,11 @@ export function withMedia(WrappedComponent, options) {
       this.state = filterState(context.mediaState, this.mediaKeys);
     }
 
-    componentDidMount =() => {
+    componentDidMount = () => {
       this.mounted = true;
       this.unsubscribe = this.context.subscribe(this.onMediaChange);
+      // check media changed after didmount
+      this.onMediaChange(this.context.getMediaState());
     };
 
     componentWillUnmount = () => {
